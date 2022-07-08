@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contacts Manager</title>
+  <link rel="stylesheet" href="./stylesheets/style.css">
+  <script src="/javascripts/jquery.js"></script>
+  <script src="/javascripts/handlebars.js"></script>
+  <script src="/javascripts/main.js"></script>
+</head>
+<body>
+  <body>
+    <header class="bs-header">
+      <div class="container">
+        <a href="#home"><h1>Contact Manager</h1></a>
+        <p>Using Backbone.js, Localstorage, RequireJS, Handlebar and Bootstrap</p>
+      </div>
+    </header>
+    <div id="menu">
+        <button class="add-contact">Add Contact</button>
+        <textArea placeholder="Search" id="searchbar"></textArea>
+      <form action="POST" method="#" id="create-tag">
+        <fieldset>
+          <label for="tag">Create tag:</label>
+          <input type="tag" name="tag" id="tag"></input>
+          <input type="submit" value="Submit" />
+          <input type="reset" value="Clear" />
+        </fieldset>
+      </form>
+      <div class="tags-list">
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 main-container">
+        </div>
+      </div>
+
+      <div class="footer text-center">
+        <p>Developed by <a href="http://www.devsaran.com">Devsaran.com</a> and <a href="http://www.239listing.com">239 Listing Real Estate</a>.</p>
+      </div>
+    </div> <!-- /container -->
+    <script type="text/javascript" src="javascripts/main.js"></script>
+    <script type="text/x-handlebars" id="contacts-template">
+      <ul class="contacts-container">
+        {{#each contacts}}
+        <li class='contacts'>
+          <div class='contacts'>
+            <h1 class="full-name">{{full_name}}</h1>
+            <p>{{phone_number}}</p>
+            <h2>{{email}}</h2>
+            {{#if tags.length}}
+            <p>Tags:</p>
+            <ul class="contact-tags">
+              {{#each tags}}
+              <li class="contact-tag">{{tag}}</li>
+              {{/each}}
+            </ul>
+            {{/if}}
+            <button class="edit-contact">Edit</button>
+            <button class="delete-contact">Delete</button>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </script>
+    <script type="text/x-handlebars" id="create-contact-script">
+      <h1>Create Contact</h1>
+      <form action="http://localhost:3000/api/contacts/" method="POST" id="create-contact-form">
+        <fieldset>
+          <label for="full_name">Full Name:</label>
+          <input type="text" id="full_name" name="full_name" required />
+          <label for="email">Email Address:</label>
+          <input type="text" id="email" name="email" />
+          <label for="phone_number">Telephone number:</label>
+          <input type="text" id="phone_number" name="phone_number" />
+          <!-- select new tag -->
+          <label for="tags">Add Tag:</label>
+          <select name="tag" id="tags">
+            <option value="" selected></option>
+            {{#each tagsList}}
+            <option value="{{tag}}">{{tag}}</option>
+            {{/each}}
+          </select>
+          <input type="submit" value="Submit" />
+          <button id="cancel-contact">Cancel</button>
+        </fieldset>
+      </form>
+    </script>
+    <script type="text/x-handlebars" id="edit-contact-script">
+      <h1>Edit Contact</h1>
+      <form action="http://localhost:3000/api/contacts/{{id}}" method="POST" id="edit-contact-form">
+        <fieldset>
+          <label for="full_name">Full Name:</label>
+          <input type="text" id="full_name" name="full_name" value="{{full_name}}" required />
+          <label for="email">Email Address:</label>
+          <input type="text" id="email" name="email" value="{{email}}" />
+          <label for="phone_number">Telephone number:</label>
+          <input type="text" id="phone_number" name="phone_number" value="{{phone_number}}" />
+          <!-- existing tags -->
+          {{#if tags.length}}
+          <p>Tags:</p>
+          <ul class="contact-tags">
+            {{#each tags}}
+            <li class="contact-tag">{{tag}}</li>
+            {{/each}}
+          </ul>
+          {{/if}}
+          <!-- select new tag -->
+          <label for="tag">Add Tag:</label>
+          <select name="tag" id="tag">
+            <option value=""selected></option>
+            {{#each tagsList}}
+            <option value="{{tag}}">{{tag}}</option>
+            {{/each}}
+          </select>
+          <input type="submit" value="Submit" />
+          <button id="cancel-contact">Cancel</button>
+        </fieldset>
+      </form>
+    </script>
+    <script type="text/handlebars" id="tags-list-template">
+    <h3>Tag Options:</h3>
+    <ul>
+    {{#each tagsList}}
+      <li><a href="#" class="tag-item">{{tag}}</a></li>
+    {{/each}}
+    </ul>
+    </script>
+</body>
+</html>

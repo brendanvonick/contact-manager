@@ -1,0 +1,174 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #333;
+  width: 100%;
+  margin: 0;
+}
+
+body a {
+  color: #428bca;
+  text-decoration: none;
+}
+
+header {
+  background-color: #563d7c;
+  color: #cdbfe3;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+header div {
+  padding: 30px 15px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+header h1 {
+  color: white;
+  font-size: 36px;
+  font-weight: 500;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#menu {
+  text-align: center;
+  background-color: #f5f5f5;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 10px 20% 0 20%;
+}
+
+#menu .add-contact {
+  margin-top: 0;
+}
+
+.add-contact {
+  color: #563d7c;
+  border: 1px solid #563d7c;
+  color: #563d7c;
+  background-color: inherit;
+  border-radius: 5px;
+  text-align: center;
+  padding: 0 20px;
+  font-size: 18px;
+  height: 34px;
+}
+
+.add-contact:hover {
+  background-color: #563d7c;
+  color: #f5f5f5;
+  cursor: pointer;
+}
+
+#searchbar {
+  font-family: inherit;
+  padding-left: 10px;
+  resize: none;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 50%;
+  float: right;
+}
+
+#create-tag {
+  margin-top: 10px;
+  width: auto;
+}
+
+ul.contacts-container {
+  display: inline-block;
+}
+
+li.contacts {
+  list-style-type: none;
+  padding: 5px;
+  float: left;
+  margin: 0 10px;
+  min-width: 150px;
+  max-width: 2000px;
+}
+
+.hidden {
+  display: none;
+}
+
+.tags-list ul {
+  padding: 0;
+}
+
+.tags-list ul li {
+  display: inline-block;
+}
+
+.tag-item {
+  color: #563d7c;
+  border: 1px solid #563d7c;
+  border-radius: 3px;
+  padding: 3px 5px;
+  text-decoration: none;
+}
+
+a.selected-tag {
+  color: #f5f5f5;
+  background: #563d7c;
+}
+
+.contact-tags {
+  padding-left: 0;
+  margin: 0px 0px 10px 0px;
+}
+
+.contact-tag {
+  color: #0087e0;
+  border: 1px solid #0087e0;
+  border-radius: 3px;
+  padding: 3px 5px;
+  display: inline-block;
+}
+
+.contacts h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.contacts h2 {
+  font-size: 16px;
+  margin: 0 0 5px 0;
+}
+
+.contacts p {
+  margin: 0;
+}
+
+.no-contacts {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.no-contacts h1 {
+  font-size: 24px;
+}
+
+.footer {
+  border-top: 1px solid #eee;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer p {
+  text-align: center;
+  padding-top: 30px;
+  font-size: 14px;
+}
