@@ -143,7 +143,6 @@ class ContactsList {
     document.querySelector('.main-container').appendChild(div);
   }
 
-  // implement awaitFormButtons (form validation and submit/cancel)
   renderCreateContactForm(target) {
     event.preventDefault();
     let createContactTemplate = Handlebars.compile(document.getElementById('create-contact-script').innerHTML);
@@ -195,14 +194,6 @@ class ContactsList {
 
       xhr.send(json);
     });
-  }
-
-  formValidated(data, form) {
-    let full_names = this.contacts.map(contact => contact.name);
-    if (full_names.includes(data.full_name)) {
-      alert('Name must be unique');
-      form.reset();
-    }
   }
 
   filterSearch(event) {
